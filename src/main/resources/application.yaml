@@ -13,3 +13,7 @@ spring:
         format_sql: true
     database: postgresql
     databasePlatform: org.hibernate.dialect.PostgreSQLDialect
+
+emlakjet:
+  amount:
+    value: 200
