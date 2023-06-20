@@ -1,5 +1,6 @@
 package com.emlakjet.invoicesystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,9 +24,11 @@ public class AccountingSpecialist {
     private String lastName;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonManagedReference
     private List<Email> emails;
 
     @OneToMany(mappedBy="specialist")
     private List<Invoice> invoices;
+
 
 }

@@ -1,5 +1,6 @@
 package com.emlakjet.invoicesystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,6 +22,7 @@ public class Email {
 
     @ManyToOne
     @JoinColumn(name="specialist_id", nullable=false)
+    @JsonBackReference
     private AccountingSpecialist specialist;
 
 }
