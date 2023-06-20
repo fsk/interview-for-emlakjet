@@ -27,7 +27,8 @@ public class AccountingSpecialist {
     @JsonManagedReference
     private List<Email> emails;
 
-    @OneToMany(mappedBy="specialist")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "specialist")
+    @JsonManagedReference
     private List<Invoice> invoices;
 
 

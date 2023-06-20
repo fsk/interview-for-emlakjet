@@ -1,5 +1,6 @@
 package com.emlakjet.invoicesystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,6 +9,7 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Invoice {
 
     @Id
@@ -21,10 +23,11 @@ public class Invoice {
     private String billNo;
 
     @Column(name = "amount")
-    private Double amount;
+    private Integer amount;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="specialist_id", nullable=false)
+    @JsonBackReference
     private AccountingSpecialist specialist;
 
 }
