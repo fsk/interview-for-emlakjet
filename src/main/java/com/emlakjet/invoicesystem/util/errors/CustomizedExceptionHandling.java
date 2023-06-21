@@ -26,4 +26,11 @@ public class CustomizedExceptionHandling extends ResponseEntityExceptionHandler 
         Response<AccountingSpecialist> apiResponse = new Response<>(HttpStatus.BAD_REQUEST, HttpStatus.BAD_REQUEST.value(), errorMessage, LocalDateTime.now());
         return new ResponseEntity<>(apiResponse, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(AccountSpecialistNotFoundException.class)
+    public ResponseEntity<Response<AccountingSpecialist>> handleMethodArgumentNotValid(AccountSpecialistNotFoundException ex) {
+        String errorMessage = ex.getExMsg();
+        Response<AccountingSpecialist> apiResponse = new Response<>(HttpStatus.BAD_REQUEST, HttpStatus.BAD_REQUEST.value(), errorMessage, LocalDateTime.now());
+        return new ResponseEntity<>(apiResponse, HttpStatus.BAD_REQUEST);
+    }
 }
