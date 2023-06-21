@@ -4,6 +4,7 @@ import com.emlakjet.invoicesystem.entity.AccountingSpecialist;
 import com.emlakjet.invoicesystem.entity.Invoice;
 import com.emlakjet.invoicesystem.repository.AccountingSpecialistRepository;
 import com.emlakjet.invoicesystem.repository.InvoiceRepository;
+import com.emlakjet.invoicesystem.util.errors.GreaterThenAmountException;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,13 +40,13 @@ public class InvoiceService {
             throw new IllegalAccessException("Accounting Specialist Not Found.!");
         }
 
-        int amountValue = accountingSpecialist.get().getInvoices().stream().mapToInt(Invoice::getAmount).sum();
+        var amountValue = accountingSpecialist.get().getInvoices().stream().mapToInt(Invoice::getAmount).sum();
 
         logger.info("AmountValue from DB : {} ", amountValue);
 
 
         if (amountValue > this.amount) {
-            throw new IllegalAccessException("Amount is should be less than total amount in Database");
+            throw new GreaterThenAmountException();
         }
 
         Invoice savedInvoice = Invoice
