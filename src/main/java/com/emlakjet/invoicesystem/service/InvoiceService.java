@@ -52,7 +52,7 @@ public class InvoiceService {
         logger.info("AmountValue from DB : {} ", amountValue);
 
 
-        if (this.amount < this.amount + amountValue) {
+        if (this.amount < amountValue + invoice.getAmount()) {
             throw new GreaterThenAmountException();
         }
 
