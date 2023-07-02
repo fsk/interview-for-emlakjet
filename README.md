@@ -35,6 +35,7 @@ Proje ayaktayken insomnia ya da postman gibi toollardan istek atılmak istenirse
   <u>endpoint:</u> http://localhost:8080/specialist/
 <br>
   <u>örnek request:</u>
+  
 ```
 {
   "firstName": "josh",
