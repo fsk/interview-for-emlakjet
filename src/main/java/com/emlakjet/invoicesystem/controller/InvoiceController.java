@@ -18,7 +18,7 @@ public class InvoiceController {
     private final InvoiceService invoiceService;
 
     @PostMapping("/")
-    public ResponseEntity<Invoice> createNewAccountingSpecialist(@RequestBody Invoice invoice) throws IllegalAccessException {
+    public ResponseEntity<Invoice> addInvoice(@RequestBody Invoice invoice) throws IllegalAccessException {
         return ResponseEntity.ok(invoiceService.createNewInvoice(invoice));
     }
 
