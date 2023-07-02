@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "be629d05-4506-4345-89bd-549c0f883267",
+		"name": "invoicing-system for emlakjet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12193203"
+	},
+	"item": [
+		{
+			"name": "new accounting specialist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstName\": \"furkan\",\n  \"lastName\": \"kulaksiz\",\n  \"emails\": [\n    {\"emailAddress\": \"sad@gmail.com\"},\n    {\"emailAddress\": \"desadf@gmail.com\"}\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/specialist/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"specialist",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add invoice",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"productName\": \"monitor\",\n    \"billNo\": \"monitor1234\",\n    \"amount\": 150,\n    \"specialist\": {\n        \"firstName\": \"furkan\",\n        \"lastName\": \"kulaksiz\",\n        \"emails\": [\n            {\"emailAddress\": \"sad@gmail.com\"}\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/invoice/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"invoice",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
